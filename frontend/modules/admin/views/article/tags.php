@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = 'Upload Image';
+$this->title = 'Set Category';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'image')->fileInput(['maxlength' => true]) ?>
+    <?= Html::dropDownList('tags', $selectedTags, $tags, ['class'=>'form-control', 'multiple'=> true]) ?>
+
     <br>
     <div class="form-group">
         <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>
