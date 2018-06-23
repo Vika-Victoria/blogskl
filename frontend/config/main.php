@@ -15,6 +15,9 @@ return [
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
+        'main' => [
+            'class' => 'app\modules\main\Module',
+        ],
     ],
     'components' => [
         'request' => [
