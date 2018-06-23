@@ -155,12 +155,12 @@ class Article extends \yii\db\ActiveRecord
 
     public static function getPopular()
     {
-        return Article::find()->orderBy('date asc')->limit(3)->all();
+        return Article::find()->orderBy('viewed desc')->limit(3)->all();
     }
 
     public static function getResent()
     {
-        return Article::find()->orderBy('viewed desc')->limit(3)->all();
+        return Article::find()->orderBy('date asc')->limit(3)->all();
     }
 
 }
