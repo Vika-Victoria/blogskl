@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'main',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -20,6 +21,7 @@ return [
         ],
     ],
     'components' => [
+
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

@@ -1,4 +1,6 @@
-
+<?php
+use yii\helpers\Url;
+?>
 <header role="banner">
     <div class="top-bar">
         <div class="container">
@@ -24,7 +26,7 @@
         <div class="row pt-5">
             <div class="col-12 text-center">
                 <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-                <h1 class="site-logo"><a href="index.html">Balita</a></h1>
+                <h1 class="site-logo"><a href="<?= Url::to('/frontend/web/'); ?>">Balita</a></h1>
             </div>
         </div>
     </div>
@@ -36,36 +38,24 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link active" href="<?= Url::to('/frontend/web/'); ?>">Home</a>
                     </li>
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Travel</a>-->
-<!--                        <div class="dropdown-menu" aria-labelledby="dropdown04">-->
-<!--                            <a class="dropdown-item" href="category.html">Asia</a>-->
-<!--                            <a class="dropdown-item" href="category.html">Europe</a>-->
-<!--                            <a class="dropdown-item" href="category.html">Dubai</a>-->
-<!--                            <a class="dropdown-item" href="category.html">Africa</a>-->
-<!--                            <a class="dropdown-item" href="category.html">South America</a>-->
-<!--                        </div>-->
-<!---->
-<!--                    </li>-->
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
 
-                            <a class="dropdown-item" href="category.html">Food</a>
-                            <a class="dropdown-item" href="category.html">Adventure</a>
-                            <a class="dropdown-item" href="category.html">Travel</a>
-                            <a class="dropdown-item" href="category.html">Business</a>
+                            <a class="dropdown-item" href="#">Food</a>
+                            <a class="dropdown-item" href="#">Adventure</a>
+                            <a class="dropdown-item" href="#">Travel</a>
+                            <a class="dropdown-item" href="#">Business</a>
                         </div>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="<?= Url::to('/frontend/web/main/default/about'); ?>">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="<?= Url::to('/frontend/web/main/default/contact'); ?>">Contact</a>
                     </li>
                 </ul>
 
