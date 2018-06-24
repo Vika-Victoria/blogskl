@@ -24,7 +24,8 @@
 
         <div class="pt-5">
             <p>Categories: <a href="<?= Url::toRoute(['/main/default/category', 'id' =>$article->category->id]); ?>"><?= $article->category->title; ?></a>
-                Tags: <span style="color:#007bff;"> </span>
+                Tags: <span style="color:#007bff;">
+                    <?php foreach ($tagTitle as $item) { echo $item->title . ' '; } ?></span>
             </p>
         </div>
 

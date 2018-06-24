@@ -30,7 +30,6 @@ AppAsset::register($this);
         </div>
     </section>
 
-<!--    --><?//= $content ?>
 
     <?= $this->render('//common/footer') ?>
 

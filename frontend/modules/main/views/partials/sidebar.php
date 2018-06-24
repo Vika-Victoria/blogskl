@@ -50,7 +50,7 @@
         <h3 class="heading">Tags</h3>
         <ul class="tags">
             <?php foreach ($tags as $tag): ?>
-                <li><a href="#"><?= $tag->title; ?></a></li>
+                <li><a href="<?= Url::toRoute(['default/tag', 'id'=>$tag->id]); ?>"><?= $tag->title; ?></a></li>
             <?php endforeach;?>
         </ul>
     </div>

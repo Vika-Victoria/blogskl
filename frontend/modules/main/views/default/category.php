@@ -5,7 +5,7 @@ use yii\widgets\LinkPager;
 ?>
 <div class="row mb-4">
     <div class="col-md-6">
-        <h2 class="mb-4">Category: <?= $categories->title ?></h2>
+        <h2 class="mb-4">Category: <?= $categoryTitle->title; ?></h2>
     </div>
 </div>
 <div class="row blog-entries">

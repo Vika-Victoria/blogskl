@@ -163,4 +163,9 @@ class Article extends \yii\db\ActiveRecord
         return Article::find()->orderBy('date asc')->limit(3)->all();
     }
 
+    public static function getTagsTitle($id)
+    {
+        return Article::findOne($id)->getTags()->all();
+    }
+
 }
