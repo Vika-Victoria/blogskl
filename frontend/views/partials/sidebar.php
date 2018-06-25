@@ -6,6 +6,15 @@
 <!-- END main-content -->
 <div class="col-md-12 col-lg-4 sidebar">
 
+    <div class="sidebar-box search-form-wrap">
+        <form action="<?= Url::to(['site/search']); ?>" class="search-form" method="get" role="search">
+            <div class="form-group">
+                <span class="icon fa fa-search"></span>
+                <input type="text" class="form-control" name="q" id="s" placeholder="Type a keyword and hit enter">
+            </div>
+        </form>
+    </div>
+
     <div class="sidebar-box">
         <h3 class="heading">Popular Posts</h3>
         <div class="post-entry-sidebar">

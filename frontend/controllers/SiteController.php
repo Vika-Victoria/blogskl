@@ -14,10 +14,23 @@ use yii\web\Controller;
 class SiteController extends Controller
 {
     public $layout = 'inner';
+
     /**
-     * Renders the index view for the module
-     * @return string
+     * {@inheritdoc}
      */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         $this->layout = 'bootstrap';
@@ -125,7 +138,17 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        return $this->render('contact');
+        $popular = Article::getPopular();
+        $recent = Article::getResent();
+        $categories = Category::getAll();
+        $tags = Tag::getAll();
+
+        return $this->render('contact', [
+            'popular' => $popular,
+            'recent' => $recent,
+            'categories' => $categories,
+            'tags' => $tags,
+        ]);
     }
 
     public function actionSearch($q)
@@ -133,7 +156,6 @@ class SiteController extends Controller
         $q = trim(Yii::$app->request->get('q'));
         $data = Article::getSearchArticle($q);
 
-//        $data = Article::getAll();
         $popular = Article::getPopular();
         $recent = Article::getResent();
         $categories = Category::getAll();

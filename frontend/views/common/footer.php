@@ -1,3 +1,7 @@
+<?php
+    use yii\helpers\Url;
+    use yii\widgets\Menu;
+?>
 <footer class="site-footer">
     <div class="container">
         <div class="row mb-5">
@@ -16,19 +20,15 @@
                         <div class="mb-5">
                             <h3>Quick Links</h3>
                             <?php
-                            use yii\helpers\Url;
-                            use yii\widgets\Menu;
-
-                            $actionId = $this->context->action->id;
-                            $menuItems =[
-                                ['label' => 'Home', 'url' => ['/main']],
-                                ['label' => 'About Us', 'url' => ['/main/default/about']],
-                                ['label' => 'Contact', 'url' => ['/main/default/contact']],
-                            ];
-                            echo Menu::widget([
-                                'options' => ['class' => 'list-unstyled'],
-                                'items' => $menuItems,
-                            ]);
+                                $menuItems =[
+                                    ['label' => 'Home', 'url' => ['/main']],
+                                    ['label' => 'About Us', 'url' => ['/main/default/about']],
+                                    ['label' => 'Contact', 'url' => ['/main/default/contact']],
+                                ];
+                                echo Menu::widget([
+                                    'options' => ['class' => 'list-unstyled'],
+                                    'items' => $menuItems,
+                                ]);
                             ?>
 
                         </div>

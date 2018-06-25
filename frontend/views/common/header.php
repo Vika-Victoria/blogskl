@@ -1,5 +1,7 @@
 <?php
-use yii\helpers\Url;
+
+    use frontend\widgets\MenuHeader;
+    use yii\helpers\Url;
 ?>
 <header role="banner">
     <div class="top-bar">
@@ -31,34 +33,7 @@ use yii\helpers\Url;
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-md  navbar-light bg-light">
-        <div class="container">
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?= Url::to(['/']); ?>">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown05">
+    <?php echo MenuHeader::widget(); ?>
 
-                            <a class="dropdown-item" href="#">Food</a>
-                            <a class="dropdown-item" href="#">Adventure</a>
-                            <a class="dropdown-item" href="#">Travel</a>
-                            <a class="dropdown-item" href="#">Business</a>
-                        </div>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= Url::to(['site/about']); ?>">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= Url::to(['site/contact']); ?>">Contact</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div
-    </nav>
 </header>
 <!-- END header -->

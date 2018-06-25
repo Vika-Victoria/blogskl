@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Balita';
 
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
