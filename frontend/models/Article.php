@@ -168,4 +168,21 @@ class Article extends \yii\db\ActiveRecord
         return Article::findOne($id)->getTags()->all();
     }
 
+    public static function getSearchArticle($q)
+    {
+
+        $query = Article::find()->where(['like', 'description', $q])->orWhere(['like', 'content', $q]);
+
+        $count = $query->count();
+        $pagination = new Pagination(['totalCount' => $count, 'pageSize' => 5]);
+        $articles = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        $data['articles'] = $articles;
+        $data['pagination'] = $pagination;
+
+        return $data;
+    }
+
 }

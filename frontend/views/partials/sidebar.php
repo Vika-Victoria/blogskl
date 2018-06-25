@@ -12,7 +12,7 @@
             <ul>
                 <?php foreach ($popular as $article): ?>
                     <li>
-                        <a href="<?= Url::toRoute(['default/single', 'id'=>$article->id]); ?>">
+                        <a href="<?= Url::toRoute(['site/single', 'id'=>$article->id]); ?>">
                             <img src="<?= $article->getImage(); ?>" alt="Image placeholder" class="mr-4">
                             <div class="text">
                                 <h4><?= $article->title; ?></h4>
@@ -33,7 +33,7 @@
         <h3 class="heading">Categories</h3>
         <ul class="categories">
             <?php foreach ($categories as $category): ?>
-                <li><a href="<?= Url::toRoute(['default/category', 'id'=>$category->id]); ?>"><?= $category->title?> <span>(<?= $category->getArticlesCount(); ?>)</span></a></li>
+                <li><a href="<?= Url::toRoute(['site/category', 'id'=>$category->id]); ?>"><?= $category->title?> <span>(<?= $category->getArticlesCount(); ?>)</span></a></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -43,7 +43,7 @@
         <h3 class="heading">Tags</h3>
         <ul class="tags">
             <?php foreach ($tags as $tag): ?>
-                <li><a href="<?= Url::toRoute(['default/tag', 'id'=>$tag->id]); ?>"><?= $tag->title; ?></a></li>
+                <li><a href="<?= Url::toRoute(['site/tag', 'id'=>$tag->id]); ?>"><?= $tag->title; ?></a></li>
             <?php endforeach;?>
         </ul>
     </div>

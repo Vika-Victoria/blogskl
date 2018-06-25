@@ -2,6 +2,7 @@
 
 namespace app\modules\main\controllers;
 
+use Yii;
 use app\models\Article;
 use app\models\ArticleTag;
 use app\models\Category;
@@ -99,8 +100,7 @@ class DefaultController extends Controller
 
     public function actionTag($id)
     {
-        $tagOne = Article::getTagsTitle($id);
-        var_dump($tagOne);die;
+        $queryTag = Tag::getTitleTags($id);
         $query = Article::find();
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize' => 6]);
@@ -121,7 +121,7 @@ class DefaultController extends Controller
             'tags' => $tags,
             'articles' => $articles,
             'pagination' => $pagination,
-            'tagOne' => $tagOne,
+            'queryTag' => $queryTag,
         ]);
     }
 
@@ -129,4 +129,5 @@ class DefaultController extends Controller
     {
         return $this->render('contact');
     }
+
 }

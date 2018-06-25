@@ -13,9 +13,9 @@ use yii\helpers\Url;
                 </div>
                 <div class="col-3 search-top">
                     <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                    <form action="#" class="search-top-form">
+                    <form action="<?= Url::to(['site/search']); ?>" class="search-top-form" method="get" role="search">
                         <span class="icon fa fa-search"></span>
-                        <input type="text" id="s" placeholder="Type keyword to search...">
+                        <input type="text" name="q" id="s" placeholder="Type keyword to search...">
                     </form>
                 </div>
             </div>
@@ -26,7 +26,7 @@ use yii\helpers\Url;
         <div class="row pt-5">
             <div class="col-12 text-center">
                 <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-                <h1 class="site-logo"><a href="<?= Url::to('/frontend/web/'); ?>">Balita</a></h1>
+                <h1 class="site-logo"><a href="<?= Url::to(['/']); ?>">Balita</a></h1>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@ use yii\helpers\Url;
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?= Url::to('/frontend/web/'); ?>">Home</a>
+                        <a class="nav-link active" href="<?= Url::to(['/']); ?>">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -50,10 +50,10 @@ use yii\helpers\Url;
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= Url::to('/frontend/web/main/default/about'); ?>">About</a>
+                        <a class="nav-link" href="<?= Url::to(['site/about']); ?>">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= Url::to('/frontend/web/main/default/contact'); ?>">Contact</a>
+                        <a class="nav-link" href="<?= Url::to(['site/contact']); ?>">Contact</a>
                     </li>
                 </ul>
 

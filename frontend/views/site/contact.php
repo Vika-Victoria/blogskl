@@ -1,45 +1,130 @@
-<?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
-
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
-
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h1>Contact</h1>
+            </div>
         </div>
-    </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
 
-</div>
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control ">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" class="form-control ">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="message">Write Message</label>
+                            <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="submit" value="Send Message" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+            <div class="col-md-12 col-lg-4 sidebar">
+                <div class="sidebar-box search-form-wrap">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon fa fa-search"></span>
+                            <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+                <!-- END sidebar-box -->
+
+                <div class="sidebar-box">
+                    <h3 class="heading">Popular Posts</h3>
+                    <div class="post-entry-sidebar">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="/frontend/web/sourse/images/img_2.jpg" alt="Image placeholder" class="mr-4">
+                                    <div class="text">
+                                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+                                        <div class="post-meta">
+                                            <span class="mr-2">March 15, 2018 </span> &bullet;
+                                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/frontend/web/sourse/images/img_4.jpg" alt="Image placeholder" class="mr-4">
+                                    <div class="text">
+                                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+                                        <div class="post-meta">
+                                            <span class="mr-2">March 15, 2018 </span> &bullet;
+                                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/frontend/web/sourse/images/img_12.jpg" alt="Image placeholder" class="mr-4">
+                                    <div class="text">
+                                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+                                        <div class="post-meta">
+                                            <span class="mr-2">March 15, 2018 </span> &bullet;
+                                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END sidebar-box -->
+
+                <div class="sidebar-box">
+                    <h3 class="heading">Categories</h3>
+                    <ul class="categories">
+                        <li><a href="#">Courses <span>(12)</span></a></li>
+                        <li><a href="#">News <span>(22)</span></a></li>
+                        <li><a href="#">Design <span>(37)</span></a></li>
+                        <li><a href="#">HTML <span>(42)</span></a></li>
+                        <li><a href="#">Web Development <span>(14)</span></a></li>
+                    </ul>
+                </div>
+                <!-- END sidebar-box -->
+
+                <div class="sidebar-box">
+                    <h3 class="heading">Tags</h3>
+                    <ul class="tags">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Food</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Freelancing</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Food</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Freelancing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END sidebar -->
+
+
+        </div>
+

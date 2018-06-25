@@ -11,14 +11,13 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'defaultRoute' => 'main',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
-        'main' => [
-            'class' => 'app\modules\main\Module',
-        ],
+//        'main' => [
+//            'class' => 'app\modules\main\Module',
+//        ],
     ],
     'components' => [
 

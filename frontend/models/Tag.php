@@ -52,5 +52,10 @@ class Tag extends \yii\db\ActiveRecord
        return Tag::find()->all();
     }
 
+    public static function getTitleTags($id)
+    {
+        return Tag::findOne($id);
+
+    }
 
 }
