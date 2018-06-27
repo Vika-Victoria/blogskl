@@ -1,9 +1,6 @@
 <?php
-
 namespace app\models;
-
 use Yii;
-
 /**
  * This is the model class for table "user".
  *
@@ -26,7 +23,6 @@ class User extends \yii\db\ActiveRecord
     {
         return 'user';
     }
-
     /**
      * {@inheritdoc}
      */
@@ -42,7 +38,6 @@ class User extends \yii\db\ActiveRecord
             [['password_reset_token'], 'unique'],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -61,3 +56,5 @@ class User extends \yii\db\ActiveRecord
         ];
     }
 }
+
+

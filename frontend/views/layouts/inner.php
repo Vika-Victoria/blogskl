@@ -17,10 +17,23 @@ AppAsset::register($this);
         <?php $this->head() ?>
     </head>
     <body>
-
-    <?php $this->beginBody(); ?>
-
     <?= $this->render('//common/header'); ?>
+
+    <?php if(Yii::$app->session->hasFlash('success')): ?>
+    <div style="font-size: 20px; text-align: center">
+        <?php
+        $success = Yii::$app->session->getFlash('success');
+        echo \yii\bootstrap\Alert::widget([
+            'options' => [
+                'class' => 'alert-success',
+            ],
+            'body' => $success,
+        ])
+        ?>
+        <?php endif; ?>
+    </div>
+
+
 
     <section class="site-section">
         <div class="container">

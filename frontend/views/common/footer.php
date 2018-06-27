@@ -21,9 +21,9 @@
                             <h3>Quick Links</h3>
                             <?php
                                 $menuItems =[
-                                    ['label' => 'Home', 'url' => ['/main']],
-                                    ['label' => 'About Us', 'url' => ['/main/default/about']],
-                                    ['label' => 'Contact', 'url' => ['/main/default/contact']],
+                                    ['label' => 'Home', 'url' => ['/']],
+                                    ['label' => 'About Us', 'url' => ['site/about']],
+                                    ['label' => 'Contact', 'url' => ['site/contact']],
                                 ];
                                 echo Menu::widget([
                                     'options' => ['class' => 'list-unstyled'],

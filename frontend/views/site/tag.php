@@ -22,7 +22,7 @@ use yii\widgets\LinkPager;
                       <div class="post-meta">
                         <span class="category">category</span>
                         <span class="mr-2">March 15, 2018 </span> •
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                        <span class="ml-2"><span class="fa fa-eye"></span> 3</span>
                       </div>
                       <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>
                     </span>
