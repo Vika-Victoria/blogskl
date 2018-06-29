@@ -1884,4 +1884,5 @@ label {
 }
 .social .logout:hover {
   text-decoration: none;
+  color: white;
 }

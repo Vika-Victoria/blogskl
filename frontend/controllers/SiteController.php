@@ -1,11 +1,11 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\ContactForm;
 use Yii;
 use app\models\Article;
 use app\models\Category;
 use app\models\Tag;
-use yii\data\Pagination;
 use yii\web\Controller;
 
 /**
@@ -33,8 +33,6 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = 'bootstrap';
-
         $data = Article::getAll();
         $popular = Article::getPopular();
         $recent = Article::getResent();
@@ -59,6 +57,8 @@ class SiteController extends Controller
         $recent = Article::getResent();
         $categories = Category::getAll();
         $tags = Tag::getAll();
+
+        $article->viewedCount();
 
         return $this->render('single', [
             'article' => $article,
@@ -111,33 +111,30 @@ class SiteController extends Controller
 
     public function actionTag($id)
     {
+        $tagArt = Tag::getArticlesByTag($id);
         $queryTag = Tag::getTitleTags($id);
-        $query = Article::find();
-        $count = $query->count();
-        $pagination = new Pagination(['totalCount' => $count, 'pageSize' => 6]);
-        $articles = $query->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-
+        $data = Tag::getAllArticle($id);
         $popular = Article::getPopular();
         $recent = Article::getResent();
         $categories = Category::getAll();
         $tags = Tag::getAll();
-
 
         return $this->render('tag', [
             'popular' => $popular,
             'recent' => $recent,
             'categories' => $categories,
             'tags' => $tags,
-            'articles' => $articles,
-            'pagination' => $pagination,
+            'articles' => $data['articles'],
+            'pagination' => $data['pagination'],
             'queryTag' => $queryTag,
+            'tagArt' => $tagArt,
         ]);
     }
 
     public function actionContact()
     {
+        $model = new ContactForm();
+
         $popular = Article::getPopular();
         $recent = Article::getResent();
         $categories = Category::getAll();
@@ -148,6 +145,7 @@ class SiteController extends Controller
             'recent' => $recent,
             'categories' => $categories,
             'tags' => $tags,
+            'model' => $model,
         ]);
     }
 

@@ -43,4 +43,14 @@ class ArticleTag extends \yii\db\ActiveRecord
             'tag_id' => 'Tag ID',
         ];
     }
+
+    public function getIdArticle()
+    {
+        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+    }
+
+    public function getIdTag()
+    {
+        return $this->hasOne(Tag::className(), ['id' => 'tag_id']);
+    }
 }

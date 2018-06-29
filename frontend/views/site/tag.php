@@ -13,22 +13,25 @@ use yii\widgets\LinkPager;
         <div class="row mb-5 mt-5">
 
             <div class="col-md-12">
-
-
-                <div class="post-entry-horzontal">
-                    <a href="#">
-                        <div class="image element-animate fadeIn element-animated" data-animate-effect="fadeIn" style="background-image: url(/frontend/web/sourse/images/img_10.jpg);"></div>
-                        <span class="text">
-                      <div class="post-meta">
-                        <span class="category">category</span>
-                        <span class="mr-2">March 15, 2018 </span> •
-                        <span class="ml-2"><span class="fa fa-eye"></span> 3</span>
-                      </div>
-                      <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>
-                    </span>
-                    </a>
-                </div>
-
+                <?php if ($tagArt):?>
+                    <?php foreach ($tagArt as $item): ?>
+                        <div class="post-entry-horzontal">
+                            <a href="<?= Url::toRoute(['/site/single', 'id' =>$item->article_id]); ?>">
+                                <div class="image element-animate fadeIn element-animated" data-animate-effect="fadeIn" style="background-image: url(<?= $item->idArticle->getImage(); ?>);"></div>
+                                <span class="text">
+                              <div class="post-meta">
+                                <span class="category"><?= $item->idArticle->category->title; ?></span>
+                                <span class="mr-2"><?= $item->idArticle->getDate(); ?></span> •
+                                <span class="ml-2"><span class="fa fa-eye"></span> <?= (int) $item->idArticle->viewed; ?></span>
+                              </div>
+                              <h2><?= $item->idArticle->title; ?></h2>
+                            </span>
+                            </a>
+                        </div>
+                    <?php endforeach;?>
+                <?php else:?>
+                    <h3>There are no articles on this tag</h3>
+                <?php endif;?>
                 <!-- END post -->
             </div>
         </div>
@@ -39,8 +42,6 @@ use yii\widgets\LinkPager;
             'pagination' => $pagination,
         ]);
         ?>
-
-
 
     </div>
 

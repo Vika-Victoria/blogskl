@@ -1,6 +1,8 @@
 <?php
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
+
 ?>
 <header role="banner">
     <div class="top-banner">
@@ -32,7 +34,7 @@ use yii\bootstrap\NavBar;
     <div class="container logo-wrap">
         <div class="row pt-5">
             <div class="col-12 text-center">
-                <h1 class="site-logo"><a href="#">Balita</a></h1>
+                <h1 class="site-logo"><a href="<?= Url::to(['/']); ?>">Balita</a></h1>
             </div>
         </div>
     </div>

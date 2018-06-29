@@ -9,7 +9,6 @@
 namespace frontend\controllers;
 
 use frontend\models\SignupForm;
-use frontend\models\User;
 use Yii;
 use yii\bootstrap\ActiveForm;
 use yii\web\Controller;
@@ -77,10 +76,6 @@ class AuthController extends Controller
         ]);
     }
 
-    public function actionLoginData()
-    {
-        print \Yii::$app->user->identity->email;
-    }
 
 
 }

@@ -185,4 +185,10 @@ class Article extends \yii\db\ActiveRecord
         return $data;
     }
 
+    public function viewedCount()
+    {
+        $this->viewed += 1;
+        return $this->save(false);
+    }
+
 }
