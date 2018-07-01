@@ -135,18 +135,30 @@ class SiteController extends Controller
     {
         $model = new ContactForm();
 
-        $popular = Article::getPopular();
-        $recent = Article::getResent();
-        $categories = Category::getAll();
-        $tags = Tag::getAll();
+        if ($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            if ($model->sendEmail(Yii::$app->params['adminEmail']))
+            {
+                Yii::$app->session->setFlash('success1', 'Thank you for contacting us. We will respond to you as possible.');
+            } else {
+                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+            }
 
-        return $this->render('contact', [
-            'popular' => $popular,
-            'recent' => $recent,
-            'categories' => $categories,
-            'tags' => $tags,
-            'model' => $model,
-        ]);
+            return $this->refresh();
+        } else {
+            $popular = Article::getPopular();
+            $recent = Article::getResent();
+            $categories = Category::getAll();
+            $tags = Tag::getAll();
+
+            return $this->render('contact', [
+                'popular' => $popular,
+                'recent' => $recent,
+                'categories' => $categories,
+                'tags' => $tags,
+                'model' => $model,
+            ]);
+        }
     }
 
     public function actionSearch($q)

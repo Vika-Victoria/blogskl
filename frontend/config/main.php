@@ -15,12 +15,20 @@ return [
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
-//        'main' => [
-//            'class' => 'app\modules\main\Module',
-//        ],
     ],
     'components' => [
-
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'vik1126111@gmail.com',
+                'password' => '',
+                'port' => '587',
+                'encryption' => 'tls',
+                ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
