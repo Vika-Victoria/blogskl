@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'date')->textInput() ?>
+    <?= $form->field($model, 'date')->textInput()->label('Date(The field is filled in automatically)') ?>
 
 <!--    --><?//= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 

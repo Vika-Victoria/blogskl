@@ -1864,6 +1864,12 @@ label {
   border-color: #dc3545;
   font-size: 1em;
 }
+.btn-warning {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  font-size: 1em;
+}
 .top-banner{
   background: #000;
   padding: 10px 0;

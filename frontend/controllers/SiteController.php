@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\CommentForm;
 use frontend\models\ContactForm;
 use Yii;
 use app\models\Article;
@@ -60,6 +61,10 @@ class SiteController extends Controller
 
         $article->viewedCount();
 
+        $comments = $article->getArticleComments();
+        $commentForm = new CommentForm();
+
+
         return $this->render('single', [
             'article' => $article,
             'popular' => $popular,
@@ -67,7 +72,25 @@ class SiteController extends Controller
             'categories' => $categories,
             'tags' => $tags,
             'tagTitle' => $tagTitle,
+            'comments' => $comments,
+            'commentForm' => $commentForm,
+
         ]);
+    }
+
+    public function actionComment($id)
+    {
+        $model = new CommentForm();
+
+        if(Yii::$app->request->isPost)
+        {
+            $model->load(Yii::$app->request->post());
+            if($model->saveComment($id))
+            {
+                Yii::$app->getSession()->setFlash('comment', 'Your comment will be added soon!');
+                return $this->redirect(['site/single','id'=>$id]);
+            }
+        }
     }
 
     public function actionAbout()

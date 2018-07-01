@@ -17,6 +17,7 @@ use yii\helpers\Url;
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/admin/default/index']],
+        ['label' => 'Comments', 'url' => ['/admin/comment/index']],
         ['label' => 'Articles', 'url' => ['/admin/article']],
         ['label' => 'Categories', 'url' => ['/admin/category']],
         ['label' => 'Tag', 'url' => ['/admin/tag']],

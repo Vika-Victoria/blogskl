@@ -1,5 +1,10 @@
 <?php
-    use yii\helpers\Url;
+
+use yii\bootstrap\Alert;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+
 ?>
 <div class="row blog-entries">
     <div class="col-md-12 col-lg-8 main-content">
@@ -16,11 +21,8 @@
                 </div>
 
             </div>
-
             <?= $article->content; ?>
-
        </div>
-
 
         <div class="pt-5">
             <p>Categories: <a href="<?= Url::toRoute(['/site/category', 'id' =>$article->category->id]); ?>"><?= $article->category->title; ?></a>
@@ -29,117 +31,50 @@
             </p>
         </div>
 
-
         <div class="pt-5">
-            <h3 class="mb-5">6 Comments</h3>
+
             <ul class="comment-list">
-                <li class="comment">
-                    <div class="vcard">
-                        <img src="/frontend/web/sourse/images/person_1.jpg" alt="Image placeholder">
-                    </div>
-                    <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                    </div>
-                </li>
 
-                <li class="comment">
-                    <div class="vcard">
-                        <img src="/frontend/web/sourse/images/person_1.jpg" alt="Image placeholder">
-                    </div>
-                    <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                    </div>
+                <?php if (!empty($comments)): ?>
 
-                    <ul class="children">
+                    <?php foreach ($comments as $comment): ?>
                         <li class="comment">
                             <div class="vcard">
-                                <img src="/frontend/web/sourse/images/person_1.jpg" alt="Image placeholder">
+                                <img src="/frontend/web/sourse/images/avatar.png" alt="Image Avatar">
                             </div>
                             <div class="comment-body">
-                                <h3>Jean Doe</h3>
-                                <div class="meta">January 9, 2018 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p><a href="#" class="reply">Reply</a></p>
+                                <h3><?= $comment->user->username; ?></h3>
+                                <div class="meta"><?= $comment->getDate(); ?></div>
+                                <p><?= $comment->text; ?></p>
                             </div>
-
-
-                            <ul class="children">
-                                <li class="comment">
-                                    <div class="vcard">
-                                        <img src="/frontend/web/sourse/images/person_1.jpg" alt="Image placeholder">
-                                    </div>
-                                    <div class="comment-body">
-                                        <h3>Jean Doe</h3>
-                                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                        <p><a href="#" class="reply">Reply</a></p>
-                                    </div>
-
-                                    <ul class="children">
-                                        <li class="comment">
-                                            <div class="vcard">
-                                                <img src="/frontend/web/sourse/images/person_1.jpg" alt="Image placeholder">
-                                            </div>
-                                            <div class="comment-body">
-                                                <h3>Jean Doe</h3>
-                                                <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                <p><a href="#" class="reply">Reply</a></p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </li>
-                    </ul>
-                </li>
+                    <?php endforeach; ?>
 
-                <li class="comment">
-                    <div class="vcard">
-                        <img src="/frontend/web/sourse/images/person_1.jpg" alt="Image placeholder">
-                    </div>
-                    <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                    </div>
-                </li>
+                <?php endif; ?>
             </ul>
             <!-- END comment-list -->
 
-            <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
-                <form action="#" class="p-5 bg-light">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" class="form-control" id="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="website">Website</label>
-                        <input type="url" class="form-control" id="website">
-                    </div>
+            <?php if (!Yii::$app->user->isGuest): ?>
+                <div class="comment-form-wrap pt-5">
+                    <h3 class="mb-5">Leave a comment</h3>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Post Comment" class="btn btn-primary">
-                    </div>
-
-                </form>
-            </div>
+                    <?php if (Yii::$app->session->getFlash('comment')): ?>
+                        <div class="alert alert-success">
+                            <?= Yii::$app->session->getFlash('comment'); ?>
+                        </div>
+                    <?php endif;?>
+                    <?php $form = ActiveForm::begin([
+                            'action' => ['site/comment', 'id' => $article->id],
+                            'options' => ['class' => 'p-5 bg-light']]); ?>
+                        <div class="form-group">
+                            <?= $form->field($commentForm, 'comment')->textarea(['class' => 'form-control', 'cols' => '30', 'rows'=>'6' ])->label('Message'); ?>
+                        </div>
+                        <div class="form-group">
+                                <?= Html::submitButton('Post Comment', ['class' => 'btn btn-primary']) ?>
+                        </div>
+                    <?php ActiveForm::end(); ?>
+                </div>
+            <?php endif;?>
         </div>
 
     </div>
