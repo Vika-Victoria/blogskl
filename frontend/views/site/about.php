@@ -1,5 +1,6 @@
 <?php
     use yii\helpers\Url;
+$this->title='About Us';
 ?>
 
 <div class="row blog-entries">

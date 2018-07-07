@@ -2,6 +2,8 @@
     use yii\widgets\ActiveForm;
     use yii\helpers\Html;
     use yii\bootstrap\Alert;
+
+$this->title='Contact';
 ?>
         <div class="row mb-4">
             <div class="col-md-6">

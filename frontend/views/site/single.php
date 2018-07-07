@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
+$this->title='Single page';
 ?>
 <div class="row blog-entries">
     <div class="col-md-12 col-lg-8 main-content">
@@ -74,6 +75,8 @@ use yii\widgets\ActiveForm;
                         </div>
                     <?php ActiveForm::end(); ?>
                 </div>
+            <?php else:?>
+                <p style="font-weight: bold">If you want to leave a comment, please <a href="<?= Url::to(['/auth/login'])?>">log in</a> or <a href="<?= Url::to(['/auth/register']) ?>">register</a></p>
             <?php endif;?>
         </div>
 

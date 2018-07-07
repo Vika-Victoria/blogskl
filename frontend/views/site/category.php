@@ -2,6 +2,7 @@
     use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
+$this->title='Category';
 ?>
 <div class="row mb-4">
     <div class="col-md-6">

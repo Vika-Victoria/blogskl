@@ -59,6 +59,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<action_site:(category|single|tag)>/<id:\d+>' => 'site/<action_site>',
+                '/about' => 'site/about',
+                '/contact' => 'site/contact',
             ],
         ],
 

@@ -1,3 +1,7 @@
+<?php
+$this->title='404 not fount';
+?>
+
 <div class="st-content">
     <div class="container">
         <div class="row">

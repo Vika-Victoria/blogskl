@@ -1,7 +1,7 @@
 <?php
     use yii\bootstrap\ActiveForm;
     use yii\helpers\Html;
-
+ $this->title='Register';
 ?>
 <div class="row mb-4">
     <div class="col-md-6">
@@ -27,9 +27,6 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <?= $form->field($model, 'repassword')->passwordInput(['class' => 'form-control'])->label('Confirm Password'); ?>
-                </div>
-                <div class="col-md-6 form-group">
-                <?= Html::a('Upload Avatar', ['set-image'], ['class' => 'btn btn-primary']) ?>
                 </div>
             </div>
 
