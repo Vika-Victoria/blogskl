@@ -30,7 +30,6 @@
                     <?php endif;?>
                 </div>
                 <div class="col-4 search-top">
-                    <!-- <a href="#"><span class="fa fa-search"></span></a> -->
                     <form action="<?= Url::to(['site/search']); ?>" class="search-top-form" method="get" role="search">
                         <span class="icon fa fa-search"></span>
                         <input type="text" name="q" id="s" placeholder="Type keyword to search...">
