@@ -1892,3 +1892,6 @@ label {
   text-decoration: none;
   color: white;
 }
+.table thead td {
+  font-weight: bold;
+}
